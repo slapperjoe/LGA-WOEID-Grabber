@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DSDIPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LGA">
+          <Key>
+            <PropertyRef Name="LGACode2016" />
+          </Key>
+          <Property Name="LGACode2016" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="LGALongCode2016" Type="nvarchar" MaxLength="8" />
+          <Property Name="LGAName2016" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="StateCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="LGACode2011" Type="nvarchar" MaxLength="5" />
+          <Property Name="LGALongCode2011" Type="nvarchar" MaxLength="8" />
+          <Property Name="LGAName2011" Type="nvarchar" MaxLength="200" />
+          <Property Name="Map" Type="bit" />
+          <Property Name="Dropdown" Type="bit" />
+        </EntityType>
+        <EntityType Name="LGAWOEIds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LGACode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="LGAName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="WOEName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WOEId" Type="int" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SA3">
+          <Key>
+            <PropertyRef Name="SA3Code2016" />
+          </Key>
+          <Property Name="SA3Code2016" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="SA3Name2016" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="StateCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="AlwaysInclude" Type="bit" />
+          <Property Name="SA3Code2011" Type="nvarchar" MaxLength="5" />
+          <Property Name="SA3Name2011" Type="nvarchar" MaxLength="200" />
+          <Property Name="Map" Type="bit" />
+          <Property Name="Dropdown" Type="bit" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DSDIPModelStoreContainer">
+          <EntitySet Name="LGA" EntityType="Self.LGA" Schema="Lookup" store:Type="Tables" />
+          <EntitySet Name="LGAWOEIds" EntityType="Self.LGAWOEIds" Schema="Lookup" store:Type="Tables" />
+          <EntitySet Name="SA3" EntityType="Self.SA3" Schema="Lookup" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="Lookup" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DSDIPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LGA">
+          <Key>
+            <PropertyRef Name="LGACode2016" />
+          </Key>
+          <Property Name="LGACode2016" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LGALongCode2016" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="LGAName2016" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="LGACode2011" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="LGALongCode2011" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="LGAName2011" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Map" Type="Boolean" />
+          <Property Name="Dropdown" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SA3">
+          <Key>
+            <PropertyRef Name="SA3Code2016" />
+          </Key>
+          <Property Name="SA3Code2016" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SA3Name2016" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="StateCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AlwaysInclude" Type="Boolean" />
+          <Property Name="SA3Code2011" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SA3Name2011" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Map" Type="Boolean" />
+          <Property Name="Dropdown" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DSDIPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LGAs" EntityType="Self.LGA" />
+          <EntitySet Name="SA3" EntityType="Self.SA3" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="LGAWOEIds" EntityType="DSDIPModel.LGAWOEId" />
+        </EntityContainer>
+        <EntityType Name="LGAWOEId">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LGACode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="LGAName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="WOEName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WOEId" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DSDIPModelStoreContainer" CdmEntityContainer="DSDIPEntities">
+          <EntitySetMapping Name="LGAs">
+            <EntityTypeMapping TypeName="DSDIPModel.LGA">
+              <MappingFragment StoreEntitySet="LGA">
+                <ScalarProperty Name="LGACode2016" ColumnName="LGACode2016" />
+                <ScalarProperty Name="LGALongCode2016" ColumnName="LGALongCode2016" />
+                <ScalarProperty Name="LGAName2016" ColumnName="LGAName2016" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="LGACode2011" ColumnName="LGACode2011" />
+                <ScalarProperty Name="LGALongCode2011" ColumnName="LGALongCode2011" />
+                <ScalarProperty Name="LGAName2011" ColumnName="LGAName2011" />
+                <ScalarProperty Name="Map" ColumnName="Map" />
+                <ScalarProperty Name="Dropdown" ColumnName="Dropdown" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SA3">
+            <EntityTypeMapping TypeName="DSDIPModel.SA3">
+              <MappingFragment StoreEntitySet="SA3">
+                <ScalarProperty Name="SA3Code2016" ColumnName="SA3Code2016" />
+                <ScalarProperty Name="SA3Name2016" ColumnName="SA3Name2016" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="AlwaysInclude" ColumnName="AlwaysInclude" />
+                <ScalarProperty Name="SA3Code2011" ColumnName="SA3Code2011" />
+                <ScalarProperty Name="SA3Name2011" ColumnName="SA3Name2011" />
+                <ScalarProperty Name="Map" ColumnName="Map" />
+                <ScalarProperty Name="Dropdown" ColumnName="Dropdown" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="DSDIPModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LGAWOEIds">
+            <EntityTypeMapping TypeName="DSDIPModel.LGAWOEId">
+              <MappingFragment StoreEntitySet="LGAWOEIds">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="WOEId" ColumnName="WOEId" />
+                <ScalarProperty Name="WOEName" ColumnName="WOEName" />
+                <ScalarProperty Name="LGAName" ColumnName="LGAName" />
+                <ScalarProperty Name="LGACode" ColumnName="LGACode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
